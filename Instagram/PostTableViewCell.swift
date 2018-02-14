@@ -12,6 +12,7 @@ class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
@@ -30,7 +31,7 @@ class PostTableViewCell: UITableViewCell {
     func setPostData(_ postData: PostData) {
         self.postImageView.image = postData.image
         
-        self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+        let caption = "\(postData.name!) : \(postData.caption!)\n"
         let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
         
@@ -46,5 +47,26 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        
+        var comments = "Comments\n"
+        var dates: [Date] = []
+        
+        for(_, comment) in postData.comments {
+            let date = Date.init(timeIntervalSinceReferenceDate: Double(comment["time"]!)!)
+            dates.append(date)
+        }
+        
+        dates.sort {$0 < $1}
+        
+        for d in dates {
+            for (_, comment) in postData.comments {
+                let date = Date.init(timeIntervalSinceReferenceDate: Double(comment["time"]!)!)
+                if date == d {
+                    comments += "\(comment["name"]!) : \(comment["comment"]!)\n"
+                }
+            }
+        }
+        
+        self.captionLabel.text = caption + comments
     }
 }

@@ -23,6 +23,7 @@
 		DCADFD552032CFD200327418 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADFD542032CFD200327418 /* PostData.swift */; };
 		DCADFD582032D0DF00327418 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADFD562032D0DF00327418 /* PostTableViewCell.swift */; };
 		DCADFD592032D0DF00327418 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCADFD572032D0DF00327418 /* PostTableViewCell.xib */; };
+		DCADFD5B2033450800327418 /* PostCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCADFD5A2033450700327418 /* PostCommentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		DCADFD542032CFD200327418 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		DCADFD562032D0DF00327418 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		DCADFD572032D0DF00327418 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		DCADFD5A2033450700327418 /* PostCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentViewController.swift; sourceTree = "<group>"; };
 		E4E11EEF4DA184E1E69E5CC9 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,19 +94,20 @@
 				DC5DB064203272C10001C242 /* GoogleService-Info.plist */,
 				DCA03C802031E1830054BB49 /* Info.plist */,
 				DCA03C742031E1820054BB49 /* AppDelegate.swift */,
+				DCADFD522032CBC800327418 /* Const.swift */,
 				DCA03C882031E2A00054BB49 /* HomeViewController.swift */,
 				DCA03C8A2031E2D40054BB49 /* ImageSelectViewController.swift */,
 				DCA03C862031E2900054BB49 /* LoginViewController.swift */,
+				DCADFD5A2033450700327418 /* PostCommentViewController.swift */,
+				DCADFD542032CFD200327418 /* PostData.swift */,
+				DCADFD562032D0DF00327418 /* PostTableViewCell.swift */,
 				DCA03C8C2031E2E90054BB49 /* PostViewController.swift */,
 				DCA03C8E2031E3140054BB49 /* SettingViewController.swift */,
 				DCA03C762031E1820054BB49 /* ViewController.swift */,
 				DCA03C7B2031E1830054BB49 /* Assets.xcassets */,
+				DCADFD572032D0DF00327418 /* PostTableViewCell.xib */,
 				DCA03C7D2031E1830054BB49 /* LaunchScreen.storyboard */,
 				DCA03C782031E1830054BB49 /* Main.storyboard */,
-				DCADFD522032CBC800327418 /* Const.swift */,
-				DCADFD542032CFD200327418 /* PostData.swift */,
-				DCADFD562032D0DF00327418 /* PostTableViewCell.swift */,
-				DCADFD572032D0DF00327418 /* PostTableViewCell.xib */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				DCA03C872031E2900054BB49 /* LoginViewController.swift in Sources */,
 				DCA03C772031E1820054BB49 /* ViewController.swift in Sources */,
 				DCA03C752031E1820054BB49 /* AppDelegate.swift in Sources */,
+				DCADFD5B2033450800327418 /* PostCommentViewController.swift in Sources */,
 				DCA03C8B2031E2D40054BB49 /* ImageSelectViewController.swift in Sources */,
 				DCADFD532032CBC800327418 /* Const.swift in Sources */,
 				DCADFD582032D0DF00327418 /* PostTableViewCell.swift in Sources */,

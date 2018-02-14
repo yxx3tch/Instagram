@@ -100,38 +100,44 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
-        
+        cell.commentButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+
         return cell
     }
     
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
-        print("DEBUG_PRINT: likeボタンがタップされました。")
-        
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
         
         let postData = postArray[indexPath!.row]
-        
-        if let uid = Auth.auth().currentUser?.uid {
-            if postData.isLiked {
-                var index = -1
-                for likeId in postData.likes {
-                    if likeId == uid {
-                        index = postData.likes.index(of: likeId)!
-                        break
+        if sender.tag == 0 {
+            print("DEBUG_PRINT: likeボタンがタップされました。")
+            if let uid = Auth.auth().currentUser?.uid {
+                if postData.isLiked {
+                    var index = -1
+                    for likeId in postData.likes {
+                        if likeId == uid {
+                            index = postData.likes.index(of: likeId)!
+                            break
+                        }
                     }
+                    postData.likes.remove(at: index)
+                } else {
+                    postData.likes.append(uid)
                 }
-                postData.likes.remove(at: index)
-            } else {
-                postData.likes.append(uid)
+                
+                let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+                
+                let likes = ["likes": postData.likes]
+                postRef.updateChildValues(likes)
+                
             }
-            
-            let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-            
-            let likes = ["likes": postData.likes]
-            postRef.updateChildValues(likes)
-            
+        } else if sender.tag == 1 {
+            print("DEBUG_PRINT: commentボタンがタップされました。")
+            let postCommentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostComment") as! PostCommentViewController
+            postCommentViewController.postData = postData
+            self.present(postCommentViewController, animated: true, completion:  nil)
         }
     }
 
